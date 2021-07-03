@@ -6,15 +6,14 @@ from pytrends.request import TrendReq
 import investpy
 
 def main(stock, years=1):  # function to get data from Yahoo Finance
-    #end = dt.datetime.today().strftime('%Y-%m-%d')  # today as the end date
-    end = dt.datetime.today().strftime('%d-%m-%Y')  # today as the end date
-    #start = (dt.datetime.today() - dt.timedelta(days=365*years)).strftime('%Y-%m-%d') 
-    start = (dt.datetime.today() - dt.timedelta(days=365*years)).strftime('%d-%m-%Y')
+    end = dt.datetime.today().strftime('%Y-%m-%d')  # today as the end date
+    start = (dt.datetime.today() - dt.timedelta(days=365*years)).strftime('%Y-%m-%d') 
+    
     
     #df = data.DataReader(stock, 'yahoo', start, end)
     
     df = investpy.get_stock_historical_data(stock= stock, country='Taiwan',
-    from_date=start, to_date=end)
+    from_date='01/07/2020')
 
     return df, start, end
 
