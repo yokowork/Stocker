@@ -13,7 +13,7 @@ def main(stock, years=1):  # function to get data from Yahoo Finance
     #df = data.DataReader(stock, 'yahoo', start, end)
     
     df = investpy.get_stock_historical_data(stock= stock, country='Taiwan',
-    from_date='01/01/2020',to_date='01/07/2021)
+    from_date='01/01/2020',to_date='01/07/2021')
 
     return df, start, end
 
