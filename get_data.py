@@ -13,8 +13,13 @@ def main(stock, years=1):  # function to get data from Yahoo Finance
     #df = data.DataReader(stock, 'yahoo', start, end)
     
     string = stock[:4]
+    
+    start1 = start[8:10]+'/'+start[5:7]+'/'+start[:4]
+    end1 = end[8:10]+'/'+end[5:7]+'/'+end[:4]
         
-    df = investpy.get_stock_historical_data(stock=string, country='Taiwan', from_date='01/01/2020', to_date='02/07/2021')
+    #df = investpy.get_stock_historical_data(stock=string, country='Taiwan', from_date='01/01/2020', to_date='02/07/2021')
+    
+    df = investpy.get_stock_historical_data(stock=string, country='Taiwan', from_date=start1, to_date=end1)
 
     return df, start, end
 
