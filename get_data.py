@@ -12,7 +12,8 @@ def main(stock, years=1):  # function to get data from Yahoo Finance
     
     #df = data.DataReader(stock, 'yahoo', start, end)
     
-    string = stock[:4]
+    #string = stock[:4]
+    string = "2603"
     
     start1 = start[8:10]+'/'+start[5:7]+'/'+start[:4]
     end1 = end[8:10]+'/'+end[5:7]+'/'+end[:4]
@@ -35,8 +36,7 @@ def company_name(stock):  # function to get the company's name from the stock
 
 def get_interest(company, timeframe):  #  base function to get 'interest' from Google Trends
     pytrend = TrendReq()  # accessing to Google Trends using pytrends package
-    #pytrend.build_payload(kw_list=[company], timeframe=timeframe)  # finding interest for 'company' during 'timeframe'
-    pytrend.build_payload(kw_list=[company], cat=0, timeframe='today 5-y', geo='TW') 
+    pytrend.build_payload(kw_list=[company], cat=0, timeframe=timeframe, geo='TW')  # finding interest for 'company' during 'timeframe'
     result = pytrend.interest_over_time().drop('isPartial', axis=1)  # saving the 'interest' values
 
     return result
