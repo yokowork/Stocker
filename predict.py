@@ -40,18 +40,4 @@ def tomorrow(stock, features=None, steps=1, training=0.9, period=14, years=1, er
     if not plot:
         return result
 
-    if plot:
-        dates = df.index.tolist()
-        from pandas.plotting import register_matplotlib_converters
-        register_matplotlib_converters()
-        import matplotlib.pyplot as plt
-        plt.plot(dates, y_predicted)
-        plt.plot(dates, df.Close.tolist())
-        plt.title(stock + ' - %1.2f' % result[0] + ' - %1.3f' % result[1] + '% - ' + result[2])
-        plt.xlabel('Date')
-        plt.ylabel('Close price (USD)')
-        plt.legend(['Predicted', 'True'])
-        plt.gcf().autofmt_xdate()
-        plt.show()
-
-        return result
+    
