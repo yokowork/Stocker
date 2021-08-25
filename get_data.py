@@ -4,6 +4,7 @@ import requests
 import datetime as dt
 from pytrends.request import TrendReq
 import investpy
+import yfinance as yf
 
 def main(stock, years=1):  # function to get data from Yahoo Finance
     end = dt.datetime.today().strftime('%Y-%m-%d')  # today as the end date
@@ -25,9 +26,11 @@ def main(stock, years=1):  # function to get data from Yahoo Finance
 
 
 def company_name(stock):  # function to get the company's name from the stock
-    url = "http://d.yimg.com/autoc.finance.yahoo.com/autoc?query={}&region=1&lang=en".format(stock)  # source
-    company = requests.get(url).json()['ResultSet']['Result'][0]['name']   # saving the name as 'company'
-
+    #url = "http://d.yimg.com/autoc.finance.yahoo.com/autoc?query={}&region=1&lang=en".format(stock)  # source
+    #company = requests.get(url).json()['ResultSet']['Result'][0]['name']   # saving the 
+    msft = yf.Ticker(stock)
+    company = msft.info['longName']
+    
     return company
 
 
