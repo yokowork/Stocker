@@ -3,7 +3,7 @@ from stocker.lstm import run
 import datetime as dt
 
 
-def tomorrow(stock, companyn, features=None, steps=1, training=0.9, period=14, years=1, error_method='mape', plot=False):
+def tomorrow(stock, features=None, steps=1, training=0.9, period=14, years=1, error_method='mape', plot=False):
     """
     Function to predict the "close price" for the next day.
 
