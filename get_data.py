@@ -25,10 +25,11 @@ def main(stock, years=1):  # function to get data from Yahoo Finance
     return df, start, end
 
 
-def company_name(stock):  # function to get the company's name from the stock
+def company_name(companyn):  # function to get the company's name from the stock
 
-    company = "長榮"
+    #company = "長榮"
 
+    company = companyn
 
     return company
 
