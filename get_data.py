@@ -35,7 +35,8 @@ def company_name(stock):  # function to get the company's name from the stock
 
 def get_interest(company, timeframe):  #  base function to get 'interest' from Google Trends
     pytrend = TrendReq()  # accessing to Google Trends using pytrends package
-    pytrend.build_payload(kw_list=[company], timeframe=timeframe)  # finding interest for 'company' during 'timeframe'
+    #pytrend.build_payload(kw_list=[company], timeframe=timeframe)  # finding interest for 'company' during 'timeframe'
+    pytrend.build_payload(kw_list=[company], cat=0, timeframe='today 5-y', geo='TW') 
     result = pytrend.interest_over_time().drop('isPartial', axis=1)  # saving the 'interest' values
 
     return result
