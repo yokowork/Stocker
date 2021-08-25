@@ -26,8 +26,7 @@ def main(stock, years=1):  # function to get data from Yahoo Finance
 
 
 def company_name(stock):  # function to get the company's name from the stock
-    #url = "http://d.yimg.com/autoc.finance.yahoo.com/autoc?query={}&region=1&lang=en".format(stock)  # source
-    #company = requests.get(url).json()['ResultSet']['Result'][0]['name']   # saving the 
+
     company = "長榮"
 
 
@@ -36,7 +35,8 @@ def company_name(stock):  # function to get the company's name from the stock
 
 def get_interest(company, timeframe):  #  base function to get 'interest' from Google Trends
     pytrend = TrendReq()  # accessing to Google Trends using pytrends package
-    pytrend.build_payload(kw_list=[company], cat=0, timeframe=timeframe, geo='TW')  # finding interest for 'company' during 'timeframe'
+    pytrend.build_payload(kw_list=[company], timeframe=timeframe, geo='TW')  
+    # finding interest for 'company' during 'timeframe'
     result = pytrend.interest_over_time().drop('isPartial', axis=1)  # saving the 'interest' values
 
     return result
