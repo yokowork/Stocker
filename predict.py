@@ -1,7 +1,7 @@
 from stocker.get_data import total
 from stocker.lstm import run
 import datetime as dt
-
+import yfinance as yf
 
 def tomorrow(stock, features=None, steps=1, training=0.9, period=14, years=1, error_method='mape', plot=False):
     """
