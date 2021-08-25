@@ -139,8 +139,9 @@ def total(stock, years=1, interest=False, wiki_views=False, indicators=False, pe
         df = add_rsi(df, period)  # generating RSI column.
 
     df = df.dropna()   # drop rows with missing data
-
+    print(df)
     return df
+    
 
 
 def correlation(stock, years=1, interest=False, wiki_views=False, indicators=False, period=14, complete=True, limit=0.5):
