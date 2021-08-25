@@ -25,12 +25,10 @@ def main(stock, years=1):  # function to get data from Yahoo Finance
     return df, start, end
 
 
-def company_name(companyn):  # function to get the company's name from the stock
+def company_name(stock):  # function to get the company's name from the stock
 
-    #company = "長榮"
-
-    company = companyn
-
+    company = "長榮"
+ 
     return company
 
 
@@ -123,10 +121,10 @@ def add_r(df, period):  # Calculate Larry William indicator (%R)
     return df
 
 
-def total(stock, companyn, years=1, interest=False, wiki_views=False, indicators=False, period=14):
+def total(stock, years=1, interest=False, wiki_views=False, indicators=False, period=14):
     # main function to combine data from Yahoo Finance, Google Trends, Wikipedia and calculated indicators.
     df, start, end = main(stock, years=years)  # get data from Yahoo Finance and define star and end
-    company = company_name(companyn)  # get the name of the company
+    company = company_name(stock)  # get the name of the company
 
     if interest:
         df = add_interest(df, company, years=years)  # adding Interest from Google Trends.
