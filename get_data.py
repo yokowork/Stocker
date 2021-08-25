@@ -12,8 +12,8 @@ def main(stock, years=1):  # function to get data from Yahoo Finance
     
     #df = data.DataReader(stock, 'yahoo', start, end)
     
-    #string = stock[:4]
-    string = "2603"
+    string = stock[:4]
+    #string = "2603"
     
     start1 = start[8:10]+'/'+start[5:7]+'/'+start[:4]
     end1 = end[8:10]+'/'+end[5:7]+'/'+end[:4]
